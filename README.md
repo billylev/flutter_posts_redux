@@ -8,7 +8,7 @@ A video of the app running can be found [here](https://youtu.be/Xk5b-5eMol0).
 
 This is a modified version of the flutter-redux-starter found [here](https://github.com/hillelcoren/flutter-redux-starter).
 
-If you interested in comparison between Redux and Bloc, have a look the the [flutter_post_bloc]() project, that implements this exact same app using the Bloc pattern.
+If you interested in comparison between Redux and Bloc, have a look the the [flutter_post_bloc](https://github.com/billylev/flutter_posts_bloc) project, that implements this exact same app using the Bloc pattern.
 
 # Getting Started
 
