@@ -12,6 +12,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
           [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
       .then((_) => runApp(new MyApp()));
@@ -53,16 +54,14 @@ class MyApp extends StatelessWidget {
               LoginScreen.route : (BuildContext context) => LoginScreen(),
               DashboardScreen.route : (BuildContext context) => DashboardScreen()
             },*/
-            home:
-
-            StoreConnector<AppState, _SessionStateViewModel>(
+            home: StoreConnector<AppState, _SessionStateViewModel>(
                 converter: _SessionStateViewModel.fromStore,
-                onInit: (store) { store.dispatch(SessionStarted());},
+                onInit: (store) {
+                  store.dispatch(SessionStarted());
+                },
                 // need to pass the context from the builder, so we can show snackbar
                 // which doesnt work with the same context that the created the scaffold
-                builder: (context, vm) => _showScreen(vm)
-
-            )));
+                builder: (context, vm) => _showScreen(vm))));
   }
 
   Widget _showScreen(_SessionStateViewModel vm) {
@@ -88,5 +87,4 @@ class _SessionStateViewModel {
   static _SessionStateViewModel fromStore(Store<AppState> store) {
     return _SessionStateViewModel(store.state.sessionState);
   }
-
 }
